@@ -4,17 +4,17 @@
 #include <random>
 
 
-Horse::Horse(int id, int trackLength)
+Horse::Horse(int trackLength)
 {
-	Horse::id = id;
 	Horse::trackLength = trackLength;
-	Horse::postion = 0;
+	Horse::position = 0;
 }
 
 void Horse::advance()
 {
 	//randomly tossing the coint to decide if the horse moves or not
 	//We know horses dont toss coins but that's what computers are here for us ;-)
+
 	std::random_device rd;
 	std::uniform_int_distribution<int> dist(0, 1);
 
@@ -23,21 +23,22 @@ void Horse::advance()
     	// If the coin lands on heads, move the horse forward
     	if (coin == 1)
 	{
-        	horses[horse;//since arrays are pointers
+		Horse::position++; //since arrays are pointers
     	}
 }//advance function ends
 
 
 
 //to print the horses on track
-void printLane(int horseNum, int *horses)
+void Horse::printLane()
 {
+
 	//loop to print . at the race track length but where the horse number is
-        for(int position=0; position<=raceLen; ++position )
+        for(int i=0; i <= Horse::trackLength; ++i )
         {
-                if(horses[horseNum]==position)
+                if(i == Horse::position)
                 {
-                        std::cout << horseNum;
+                        std::cout << Horse::id;
                 }//if block ends
                 else
                 {
@@ -49,14 +50,20 @@ void printLane(int horseNum, int *horses)
 
 
 //function the check if any horse won
-bool isWinner(int horseNum, int *horses)
+
+bool Horse::isWinner() 
 {
-        bool winner = false;
-        if(horses[horseNum]>= raceLen)
-        {
-                std::cout << "Our Horse " << horseNum << " WINS!!" << std::endl;
-                winner = true;
-        }
-        return winner;
+    bool winner = false;
+    if (Horse::position >= Horse::trackLength) {
+        std::cout << "Our Horse " << Horse::id << " WINS!!" << std::endl;
+        winner = true;
+    }
+    return winner;
 }
 
+// Function to print all horses on the track (standalone function)
+void printLane(int numHorses, Horse horses[]) {
+    for (int i = 0; i < numHorses; ++i) {
+        horses[i].printLane(i); // Use index as identifier
+    }
+}
