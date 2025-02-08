@@ -1,5 +1,5 @@
-#include "Race.h"
-#include "Horse.h"
+#include "race.h"
+#include "horse.h"
 #include <iostream>
 
 Race::Race() 

@@ -1,14 +1,20 @@
-#include "Race.h"
-#include "Horse.h"
+#include "race.h"
+#include "horse.h"
 #include <iostream>
 #include <random>
 
 
-Horse::Horse(int trackLength)
+// Default constructor
+Horse::Horse() : tracklength(0), position(0), id(-1) {}
+
+/* Constructor that takes trackLength as a parameter
+Horse::Horse(int trackLength) : tracklength(trackLength), position(0), id(-1) {}
+Horse::Horse(int tracklength)
 {
-	Horse::trackLength = trackLength;
+	Horse::tracklength = tracklength;
 	Horse::position = 0;
 }
+*/
 
 void Horse::advance()
 {
@@ -34,7 +40,7 @@ void Horse::printLane()
 {
 
 	//loop to print . at the race track length but where the horse number is
-        for(int i=0; i <= Horse::trackLength; ++i )
+        for(int i=0; i <= Horse::tracklength; ++i )
         {
                 if(i == Horse::position)
                 {
@@ -54,7 +60,7 @@ void Horse::printLane()
 bool Horse::isWinner() 
 {
     bool winner = false;
-    if (Horse::position >= Horse::trackLength) {
+    if (Horse::position >= Horse::tracklength) {
         std::cout << "Our Horse " << Horse::id << " WINS!!" << std::endl;
         winner = true;
     }
@@ -64,6 +70,6 @@ bool Horse::isWinner()
 // Function to print all horses on the track (standalone function)
 void printLane(int numHorses, Horse horses[]) {
     for (int i = 0; i < numHorses; ++i) {
-        horses[i].printLane(i); // Use index as identifier
+        horses[i].printLane(); // Use index as identifier
     }
 }

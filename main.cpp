@@ -1,5 +1,5 @@
 // main.cpp
-#include "Race.h"
+#include "race.h"
 
 int main() 
 {

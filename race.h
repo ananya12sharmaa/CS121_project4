@@ -1,19 +1,19 @@
 #ifndef RACE_H_EXISTS
 #define RACE_H_EXISTS
 
-#include <Horse.h>
+#include "horse.h"
 
 class Race 
 {
 
 	private:
-		const int Num_Horses = 5;
+		static const int Num_Horses = 5;
 		const int Track_length = 15;
 		Horse horses[Num_Horses];
 
 	public:
 		Race();
-		void run()
+		void run();
 };
 
 #endif 

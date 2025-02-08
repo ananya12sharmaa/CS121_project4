@@ -1,13 +1,13 @@
 horseRace: horse.o race.o main.o
 	g++ horse.o race.o main.o -o horseRace
 
-horse.o: horse.cpp Horse.h
+horse.o: horse.cpp horse.h race.h  
 	g++ -c horse.cpp
 
-race.o: race.cpp Race.h Horse.h
+race.o: race.cpp race.h horse.h
 	g++ -c race.cpp
 
-main.o: main.cpp Race.h Horse.h
+main.o: main.cpp race.h horse.h
 	g++ -c main.cpp
 
 clean:
