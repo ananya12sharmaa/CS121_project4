@@ -1,19 +1,22 @@
 #ifndef HORSE_H_EXISTS
 #define HORSE_H_EXISTS
 
-class Horse {
-public:
-    Horse();
-    void init(int id, int trackLength);
-    void advance();
-    void printLane();
-    bool isWinner();
+class Horse 
+{
+	private:
+		int position;
+		const int tracklength;
+		int id;
 
-private:
-    int position;
-    const int trackLength;
-    int id;
+	public:
+    		Horse();
+   		void init(int id, int trackLength);
+   		void advance();
+  		void printLane();
+    		bool isWinner();
+
 };
 
 #endif
 
+//end class def

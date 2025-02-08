@@ -1,49 +1,62 @@
 #include "Race.h"
 #include "Horse.h"
 #include <iostream>
+#include <random>
 
-const int Num_Horses = 5;
-const int Track_length = 15;
 
-Race::Race() 
+Horse::Horse(int id, int trackLength)
 {
-    for (int i = 0; i < Num_Horses; ++i) 
-    {
-        horses[i].init(i, Track_length);
-    }//for block ends
-}//race ends
+	Horse::id = id;
+	Horse::trackLength = trackLength;
+	Horse::postion = 0;
+}
 
-void Race::run() 
+void Horse::advance()
 {
-    std::cout << "Hi there! You are here to witness a crazy fun horse race between our Horses numbered 0,1,2,3,4!" << std::endl;
-    for (int i = 0; i < Num_Horses; ++i) 
-    {
-        horses[i].printLane();
-    }//for block ends
-    std::cout << "LET THE HORSE RACE BEGINNN!!" << std::endl;
+	//randomly tossing the coint to decide if the horse moves or not
+	//We know horses dont toss coins but that's what computers are here for us ;-)
+	std::random_device rd;
+	std::uniform_int_distribution<int> dist(0, 1);
 
-    bool check = true;
-    while (check) 
-    {
-        for (int i = 0; i < Num_Horses; ++i) 
+	int coin = dist(rd);
+    
+    	// If the coin lands on heads, move the horse forward
+    	if (coin == 1)
 	{
-            horses[i].advance();
-            horses[i].printLane();
+        	horses[horse;//since arrays are pointers
+    	}
+}//advance function ends
+
+
+
+//to print the horses on track
+void printLane(int horseNum, int *horses)
+{
+	//loop to print . at the race track length but where the horse number is
+        for(int position=0; position<=raceLen; ++position )
+        {
+                if(horses[horseNum]==position)
+                {
+                        std::cout << horseNum;
+                }//if block ends
+                else
+                {
+                        std::cout << ".";
+                }//else block ends
+        }//loop ends
+        std::cout << std::endl;//taking the control of cursor to the next line
+}//printing function ends
+
+
+//function the check if any horse won
+bool isWinner(int horseNum, int *horses)
+{
+        bool winner = false;
+        if(horses[horseNum]>= raceLen)
+        {
+                std::cout << "Our Horse " << horseNum << " WINS!!" << std::endl;
+                winner = true;
         }
-
-        for (int i = 0; i < Num_Horses; ++i) 
-	{
-            if (horses[i].isWinner()) 
-	    {
-                check = false;
-            }
-        }
-
-        if (check) 
-	{
-            std::cout << "Press enter for another turn" << std::endl;
-            std::cin.get();
-        }//if block to keep running the 
-    }
+        return winner;
 }
 

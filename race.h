@@ -1,16 +1,21 @@
-#ifndef RACE_H
-#define RACE_H
+#ifndef RACE_H_EXISTS
+#define RACE_H_EXISTS
 
-class Race {
-public:
-    Race();
-    void run();
+#include <Horse.h>
 
-private:
-    const int Num_Horses;
-    const int Track_length;
-    Horse horses[Num_Horses];
+class Race 
+{
+
+	private:
+		const int Num_Horses = 5;
+		const int Track_length = 15;
+		Horse horses[Num_Horses];
+
+	public:
+		Race();
+		void run()
 };
 
-#endif  // RACE_H
+#endif 
+//RACE_H
 
