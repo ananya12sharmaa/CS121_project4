@@ -5,17 +5,26 @@
 
 
 // Default constructor
-Horse::Horse() : tracklength(0), position(0), id(-1) {}
+//Horse::Horse() : tracklength(0), position(0), id(-1) {}
 
-/* Constructor that takes trackLength as a parameter
-Horse::Horse(int trackLength) : tracklength(trackLength), position(0), id(-1) {}
-Horse::Horse(int tracklength)
-{
-	Horse::tracklength = tracklength;
-	Horse::position = 0;
+Horse::Horse(int trackLength) : tracklength(trackLength), position(0), id(0) {
+    // No need to assign tracklength here
 }
-*/
 
+// Constructor that takes trackLength as a parameter
+//Horse::Horse(int trackLength) : tracklength(trackLength), position(0), id(-1) {}
+/*Horse::Horse(int trackLength)
+{
+	Horse::tracklength = trackLength;
+	Horse::position = 0;
+}*/
+
+
+void Horse::init(int horseId, int trackLength) {
+    id = horseId;
+    tracklength = trackLength;
+    position = 0;  // Or whatever the initial value is for position
+}
 void Horse::advance()
 {
 	//randomly tossing the coint to decide if the horse moves or not

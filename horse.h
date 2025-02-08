@@ -10,7 +10,8 @@ class Horse
 
 	public:
     		Horse();
-   		void init(int id, int tracklength);
+		Horse(int trackLength);
+   		void init(int id, int trackLength);
    		void advance();
   		void printLane();
     		bool isWinner();
