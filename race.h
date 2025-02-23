@@ -1,10 +1,10 @@
+#include "horse.h"
+
 #ifndef RACE_H_EXISTS
 #define RACE_H_EXISTS
 
-#include "horse.h"
-
 class Race 
-{
+{//beginning class def
 
 	private:
 		static const int Num_Horses = 5;
@@ -14,8 +14,7 @@ class Race
 	public:
 		Race();
 		void run();
-};
+
+};//ends class def
 
 #endif 
-//RACE_H
-

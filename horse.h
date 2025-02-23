@@ -2,7 +2,8 @@
 #define HORSE_H_EXISTS
 
 class Horse 
-{
+{//beginning the class definition
+
 	private:
 		int position;
 		const int tracklength;
@@ -16,8 +17,7 @@ class Horse
   		void printLane();
     		bool isWinner();
 
-};
+};//end class def
 
 #endif
 
-//end class def
